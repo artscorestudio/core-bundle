@@ -43,7 +43,7 @@ public function registerBundles()
 {
 	$bundles = array(
 		// ...
-		new Asf\Bundle\CoreBundle\AsfCoreBundle()
+		new ASF\CoreBundle\ASFCoreBundle()
 		// ...
 	);
 }
@@ -51,7 +51,7 @@ public function registerBundles()
 
 ### Next Steps
 
-Now you have completed the basic installation and configuration of the AsfCoreBundle, you are ready to learn about more advanced features and usages of the bundle.
+Now you have completed the basic installation and configuration of the ASFCoreBundle, you are ready to learn about more advanced features and usages of the bundle.
 
 The following documents are available :
 

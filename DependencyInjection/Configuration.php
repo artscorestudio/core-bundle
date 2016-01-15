@@ -20,6 +20,10 @@ use Symfony\Component\Config\Definition\Builder\TreeBuilder;
  */
 class Configuration implements ConfigurationInterface
 {
+	/**
+	 * {@inheritDoc}
+	 * @see \Symfony\Component\Config\Definition\ConfigurationInterface::getConfigTreeBuilder()
+	 */
 	public function getConfigTreeBuilder()
 	{
 		$treeBuilder = new TreeBuilder();

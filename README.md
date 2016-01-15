@@ -1,20 +1,22 @@
 # Artscore Studio Core Bundle
+
 Symfony 3 core bundle for commons features in Artscore Studio Framework Environment.
 
 IMPORTANT NOTICE: This bundle is still under development. Any changes will be done without prior notice to consumers of this package. Of course this code will become stable at a certain point, but for now, use at your own risk.
 
 ## Documentation
+
 The bulk of the documentation is stored in the Resources/docs/index.md file in bundle :
 
 [Read the documentation for master](https://github.com/artscorestudio/core-bundle/blob/master/Resources/doc/index.md).
 
 
-Installation
-------------
+## Installation
+
 All the installation instructions are located in the documentation.
 
-License
--------
+## License
+
 The MIT License (MIT)
 
 Copyright (c) 2012-2016 Nicolas Claverie <info@artscore-studio.fr>
@@ -36,12 +38,12 @@ COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-About
------
+## About
+
 Artscore Studio Core Bundle is an [Artscore Studio](http://www.artscore-studio.fr) initiative.
 
-Reporting an issue or a feature request
----------------------------------------
+## Reporting an issue or a feature request
+
 Issues and features requests are tracked in the [GitHub issue tracker](https://github.com/artscorestudio/core-bundle/issues).
 
 When reporting a bug, it may be a good idea to reproduce it in a basic project built using the Symfony Standard Edition to allow developers of the bundle te reproduce the issue by simply cloning it and following steps.
