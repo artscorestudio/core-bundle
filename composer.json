@@ -5,12 +5,12 @@
 	"description" : "Symfony 3 core bundle for commons features in Artscore Studio Framework Environment.",
 	"homepage" : "https://github.com/artscorestudio/core-bundle",
 	"authors" : [{
-			"name" : "Nicolas Claverie",
-			"email" : "info@artscore-studio.fr"
-		}, {
-			"name" : "Artscore Studio",
-			"homepage" : "http://www.artscore-studio.fr"
-		}
+		"name" : "Nicolas Claverie",
+		"email" : "info@artscore-studio.fr"
+	}, {
+		"name" : "Artscore Studio",
+		"homepage" : "http://www.artscore-studio.fr"
+	}
 	],
 	"require" : {
 		"php" : ">=5.5.9",
@@ -18,13 +18,12 @@
 	},
 	"require-dev" : {
 		"sensio/generator-bundle": "^3.0",
-    	"symfony/phpunit-bridge": "^2.7"
+    		"symfony/phpunit-bridge": "^2.7"
 	},
 	"autoload" : {
 		"psr-0" : {
-			"ASF\\CoreBundle" : ""
+			"ASF\\CoreBundle\\" : ""
 		}
 	},
-	"target-dir" : "ASF/CoreBundle",
 	"minimum-stability" : "dev"
 }
