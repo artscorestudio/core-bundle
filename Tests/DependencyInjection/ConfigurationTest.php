@@ -9,19 +9,45 @@
  */
 namespace ASF\CoreBundle\Tests\DependencyInjection;
 
+use Symfony\Bundle\FrameworkBundle\Tests\TestCase;
+use Symfony\Component\Config\Definition\Processor;
+
 /**
  * Bundle's Configuration Test Suites
  * 
  * @author Nicolas Claverie <info@artscore-studio.fr>
  *
  */
-class ConfigurationTest extends \PHPUnit_TestCase
+class ConfigurationTest extends TestCase
 {
+	/**
+	 * @var \Symfony\Component\Config\Definition\Processor
+	 */
+	protected $processor;
+	
+	/**
+	 * {@inheritDoc}
+	 * @see PHPUnit_TestCase::setUp()
+	 */
+	public function setUp()
+	{
+		parent::setUp();
+		
+		$this->processor = new Processor();
+	}
+	
+	public function tearDown()
+	{
+		unset($this->processor);
+		parent::tearDown();
+	}
+	
 	/**
 	 * Test Default Configuration
 	 */
 	public function testDefaultConfiguration()
 	{
-		
+		$default_configuration = new Configuration();
+		$configuration = $this->processor->processConfiguration($default_configuration, array());
 	}
 }
