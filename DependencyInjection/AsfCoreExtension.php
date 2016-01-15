@@ -8,3 +8,25 @@
  * file that was distributed with this source code.
  */
 namespace ASF\CoreBundle\DependencyInjection;
+
+
+use Symfony\Component\HttpKernel\DependencyInjection\Extension;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+
+/**
+ * Bundle extension
+ * 
+ * @author Nicolas Claverie <info@artscore-studio.fr>
+ *
+ */
+class ASFCoreExtension extends Extension
+{
+	/**
+	 * {@inheritDoc}
+	 * @see \Symfony\Component\DependencyInjection\Extension\ExtensionInterface::load()
+	 */
+	public function load(array $configs, ContainerBuilder$container)
+	{
+		
+	}
+}

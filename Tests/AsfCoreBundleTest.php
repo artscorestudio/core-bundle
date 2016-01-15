@@ -13,7 +13,7 @@ use Symfony\Bundle\FrameworkBundle\Tests\TestCase;
 use ASF\CoreBundle\ASFCoreBundle;
 
 /**
- * Core Bundle tests
+ * Core Bundle Test Suites
  * 
  * @author Nicolas Claverie <info@artscore-studio.fr>
  *
