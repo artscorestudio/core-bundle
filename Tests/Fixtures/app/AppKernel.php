@@ -8,7 +8,7 @@ class AppKernel extends Kernel
     {
         $bundles = array(
             new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
-        	new Asf\Bundle\cOREBundle\AsfcOREBundle()
+        	new ASF\CoreBundle\ASFCoreBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

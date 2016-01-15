@@ -7,10 +7,10 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Asf\Bundle\CoreBundle\Tests;
+namespace ASF\CoreBundle\Tests;
 
 use Symfony\Bundle\FrameworkBundle\Tests\TestCase;
-use Asf\Bundle\CoreBundle\AsfCoreBundle;
+use ASF\CoreBundle\ASFCoreBundle;
 
 /**
  * Core Bundle tests
@@ -18,7 +18,7 @@ use Asf\Bundle\CoreBundle\AsfCoreBundle;
  * @author Nicolas Claverie <info@artscore-studio.fr>
  *
  */
-class AsfCoreBundleTest extends TestCase
+class ASFCoreBundleTest extends TestCase
 {
 	/**
 	 * (non-PHPdoc)
@@ -26,7 +26,7 @@ class AsfCoreBundleTest extends TestCase
 	 */
 	public function testBuild()
 	{
-		$bundle = new AsfCoreBundle();
+		$bundle = new ASFCoreBundle();
 		$bundle->build($this->container);
 	}
 }

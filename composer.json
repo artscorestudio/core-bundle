@@ -22,9 +22,9 @@
 	},
 	"autoload" : {
 		"psr-0" : {
-			"Asf\\Bundle\\CoreBundle" : ""
+			"ASF\\CoreBundle" : ""
 		}
 	},
-	"target-dir" : "Asf/Bundle/CoreBundle",
+	"target-dir" : "ASF/CoreBundle",
 	"minimum-stability" : "dev"
 }
