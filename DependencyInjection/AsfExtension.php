@@ -13,12 +13,12 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 /**
- * Bundle extension
+ * Base class to define Bundle Extension
  * 
  * @author Nicolas Claverie <info@artscore-studio.fr>
  *
  */
-class ASFExtension extends Extension
+abstract class ASFExtension extends Extension
 {
 	/**
 	 * Maps parameters in container

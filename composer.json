@@ -13,12 +13,11 @@
 	}
 	],
 	"require" : {
-		"php" : ">=5.5.9",
-		"symfony/symfony" : "3.0.*"
+		"php" : ">=5.5.9"
 	},
 	"require-dev" : {
-		"sensio/generator-bundle": "^3.0",
-    		"symfony/phpunit-bridge": "^2.7"
+		"symfony/framework-bundle": "~3.0",
+        "phpunit/phpunit": "5.1.*"
 	},
 	"autoload" : {
 		"psr-4" : {
