@@ -37,18 +37,4 @@ abstract class ASFExtension extends Extension
 			}
 		}
 	}
-	
-	/**
-	 * Check the validity of a path done in bundle's configuration parameter
-	 *
-	 * @param string $path
-	 * @param ContainerBuilder $container
-	 * 
-	 * @return boolean
-	 */
-	public function checkPath($path, ContainerBuilder $container)
-	{
-		$path = str_replace('%kernel.root_dir%', $container->getParameter('kernel.root_dir'), $path);
-		return file_exists($path);
-	}
 }
