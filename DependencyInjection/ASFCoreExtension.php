@@ -32,5 +32,6 @@ class ASFCoreExtension extends ASFExtension
 	    
 	    $loader = new XmlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
 	    $loader->load('services/services.xml');
+	    
 	}
 }
