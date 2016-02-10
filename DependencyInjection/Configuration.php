@@ -30,13 +30,9 @@ class Configuration implements ConfigurationInterface
 		$rootNode = $treeBuilder->root('asf_core');
 		
 		$rootNode
-			->children()
-				->arrayNode('supports')
-					->children()
-						->scalarNode('asf_ui')->defaultFalse()->end()
-					->end()
-				->end()
-			->end()
+		
 		;
+		
+		return $treeBuilder; 
 	}
 }
