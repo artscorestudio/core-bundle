@@ -9,7 +9,7 @@
  */
 namespace ASF\CoreBundle\Tests;
 
-use Symfony\Bundle\FrameworkBundle\Tests\TestCase;
+use \Mockery as m;
 use ASF\CoreBundle\ASFCoreBundle;
 
 /**
@@ -18,7 +18,7 @@ use ASF\CoreBundle\ASFCoreBundle;
  * @author Nicolas Claverie <info@artscore-studio.fr>
  *
  */
-class ASFCoreBundleTest extends TestCase
+class ASFCoreBundleTest extends \PHPUnit_Framework_TestCase
 {
 	/**
 	 * (non-PHPdoc)
@@ -26,7 +26,21 @@ class ASFCoreBundleTest extends TestCase
 	 */
 	public function testBuild()
 	{
+		$container = $this->getContainer();
+		
 		$bundle = new ASFCoreBundle();
-		$bundle->build($this->container);
+		$bundle->build($container);
+	}
+	
+	/**
+	 * Return a mock object of ContainerBuilder
+	 *
+	 * @return \Symfony\Component\DependencyInjection\ContainerBuilder
+	 */
+	protected function getContainer($bundles = null, $extensions = null)
+	{
+		$container = m::mock('Symfony\Component\DependencyInjection\ContainerBuilder');
+	
+		return $container;
 	}
 }

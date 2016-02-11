@@ -21,6 +21,7 @@ use ASF\CoreBundle\DependencyInjection\CompilerPass\ASFEntityManagerCompilerPass
  */
 class ASFCoreBundle extends Bundle
 {
+	
     /**
      * {@inheritDoc}
      * @see \Symfony\Component\HttpKernel\Bundle\Bundle::build()

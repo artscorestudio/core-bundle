@@ -21,33 +21,15 @@ use Symfony\Component\Config\Definition\Processor;
 class ConfigurationTest extends TestCase
 {
 	/**
-	 * @var \Symfony\Component\Config\Definition\Processor
+	 * Processes an array of configurations.
+	 * 
+	 * @param array $configs An array of configuration items to process
+	 * 
+	 * @return array The processed configuration
 	 */
-	protected $processor;
-	
-	/**
-	 * {@inheritDoc}
-	 * @see PHPUnit_TestCase::setUp()
-	 */
-	public function setUp()
+	public function process($configs)
 	{
-		parent::setUp();
-		
-		$this->processor = new Processor();
-	}
-	
-	public function tearDown()
-	{
-		unset($this->processor);
-		parent::tearDown();
-	}
-	
-	/**
-	 * Test Default Configuration
-	 */
-	public function testDefaultConfiguration()
-	{
-		$default_configuration = new Configuration();
-		$configuration = $this->processor->processConfiguration($default_configuration, array());
+		$processor = new Processor();
+		return $processor->processConfiguration(new Configuration(), $configs);
 	}
 }

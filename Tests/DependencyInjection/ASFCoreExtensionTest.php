@@ -20,37 +20,5 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
  */
 class ASFCoreExtensionTest extends TestCase
 {
-	/**
-	 * @var \Symfony\Component\DependencyInjection\ContainerBuilder
-	 */
-	protected $container;
 	
-	/**
-	 * {@inheritDoc}
-	 * @see PHPUnit_TestCase::setUp()
-	 */
-	protected function setUp()
-	{
-		parent::setUp();
-		
-		$this->container = new ContainerBuilder();
-	}
-	
-	/**
-	 * {@inheritDoc}
-	 * @see PHPUnit_TestCase::tearDown()
-	 */
-	protected function tearDown()
-	{
-		unset($this->container);
-		parent::tearDown();
-	}
-	
-	/**
-	 * Test bundle's default configuration
-	 */
-	public function testDefaultConfiguration()
-	{
-		
-	}
 }
