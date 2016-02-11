@@ -105,4 +105,16 @@ I don't know if you noticed, but in the examples above, you have not created you
 <parameter key="acme_user.user.manager.class">Acme\UserBundle\Entity\Manager\UserManager</parameter>
 ```
 
+CoreBundle porvides a Model class to extends if you want :
+
+```php
+namespace Acme\UserBundle\Entity\Manager;
+
+use ASF\CoreBundle\Model\Manager\ASFEntityManager;
+
+class UserManager extends ASFEntityManager
+{
+	// [...]
+}
+```
 
