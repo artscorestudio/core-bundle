@@ -40,7 +40,7 @@ class ASFEntityManagerCompilerPassTest implements \PHPUnit_Framework_TestCase
      */
     public function testProcess()
     {
-        
+        //$container->should
     }
     
     /**
