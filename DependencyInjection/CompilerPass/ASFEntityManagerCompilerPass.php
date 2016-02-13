@@ -28,7 +28,7 @@ class ASFEntityManagerCompilerPass implements CompilerPassInterface
     public function process(ContainerBuilder $container)
     {
         $tagged_services = $container->findTaggedServiceIds('asf_core.manager');
-
+		
         foreach($tagged_services as $id => $tags) {
             foreach($tags as $attributes) {
                 
@@ -36,13 +36,13 @@ class ASFEntityManagerCompilerPass implements CompilerPassInterface
                     throw new \LogicException(sprintf("Attribute entity missing for service tagged asf_core.manager for service id %s", $id));
                 }
                 
-                $class = $this->translateParameter($container->getDefinition($id)->getClass());
-                $entity = $this->translateParameter($attributes['entity']);
+                $class = false !== strpos($container->getDefinition($id)->getClass(), '%') ? $this->translateParameter($container->getDefinition($id)->getClass()) : $container->getDefinition($id)->getClass();
+                $entity = false !== strpos($attributes['entity'], '%') ? $this->translateParameter($attributes['entity']) : $attributes['entity'];
                 
-                if ( !class_exists($container->getParameter($class)) ) {
-                    $container->getDefinition($id)->setClass('ASF\CoreBundle\Entity\Manager\ASFEntityManager');
-                    $container->getDefinition($id)->addArgument(new Reference('doctrine.orm.entity_manager'));
-                    $container->getDefinition($id)->addArgument($container->getParameter($entity));
+                if ( !class_exists($class) ) {
+                	$container->getDefinition($id)->setClass('ASF\CoreBundle\Entity\Manager\ASFEntityManager');
+                	$container->getDefinition($id)->addArgument(new Reference('doctrine.orm.entity_manager'));
+                	$container->getDefinition($id)->addArgument($entity);
                 }
             }
         }

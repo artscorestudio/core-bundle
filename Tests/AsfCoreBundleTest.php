@@ -40,7 +40,7 @@ class ASFCoreBundleTest extends \PHPUnit_Framework_TestCase
 	protected function getContainer($bundles = null, $extensions = null)
 	{
 		$container = m::mock('Symfony\Component\DependencyInjection\ContainerBuilder');
-	
+		$container->shouldReceive('addCompilerPass');
 		return $container;
 	}
 }

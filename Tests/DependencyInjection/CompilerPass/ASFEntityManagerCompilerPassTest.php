@@ -19,10 +19,10 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
  * @author Nicolas Claverie <info@artscore-studio.fr>
  *
  */
-class ASFEntityManagerCompilerPassTest implements \PHPUnit_Framework_TestCase
+class ASFEntityManagerCompilerPassTest extends \PHPUnit_Framework_TestCase
 {
 	/**
-     * @var m\Mock|\Symfony\Component\DependencyInjection\ContainerInterface
+     * @var m\Mock|\Symfony\Component\DependencyInjection\ContainerBuilder
      */
     private $container;
     
@@ -37,17 +37,19 @@ class ASFEntityManagerCompilerPassTest implements \PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
-        $this->container = m::mock('Symfony\Component\DependencyInjection\ContainerInterface');
+        $this->container = m::mock('Symfony\Component\DependencyInjection\ContainerBuilder');
         $this->container->shouldReceive('register');
         $this->container->shouldReceive('hasDefinition');
         $this->container->shouldReceive('getDefinition');
         $this->container->shouldReceive('setDefinitions');
+        $this->container->shouldReceive('findTaggedServiceIds');
         
         $this->kernel = m::mock('Symfony\Component\HttpKernel\KernelInterface');
         $this->kernel->shouldReceive('getName')->andReturn('app');
         $this->kernel->shouldReceive('getEnvironment')->andReturn('prod');
         $this->kernel->shouldReceive('isDebug')->andReturn(false);
         $this->kernel->shouldReceive('getContainer')->andReturn($this->container);
+        $this->kernel->shouldReceive('getBundles');
     }
     
     /**
@@ -55,12 +57,13 @@ class ASFEntityManagerCompilerPassTest implements \PHPUnit_Framework_TestCase
      */
     public function testProcess()
     {
+    	$manager = m::mock('ASF\CoreBundle\Entity\Manager\ASFEntityManager');
     	$container = new ContainerBuilder();
-    	$container->register('foo', 'stdClass')->addTag('asf_core.manager', array('entity' => 'stdClass'));
+    	$container->register('foo.manager', $manager)->addTag('asf_core.manager', array('entity' => 'ASF\CoreBundle\Tests\Fixtures\Manager\MockUser'));
     	
     	$compiler = new ASFEntityManagerCompilerPass();
     	$compiler->process($container);
     	
-    	$this->assertTrue($container->hasDefinition('foo'));
+    	$this->assertTrue($container->hasDefinition('foo.manager'));
     }
 }
