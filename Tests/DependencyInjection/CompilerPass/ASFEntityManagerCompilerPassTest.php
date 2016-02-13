@@ -55,15 +55,26 @@ class ASFEntityManagerCompilerPassTest extends \PHPUnit_Framework_TestCase
     /**
      * Test compiler pass without any services are defined as entity manager
      */
+    public function testProcessWithoutDefinedServices()
+    {
+    	$container = new ContainerBuilder();
+    	
+    	$compiler = new ASFEntityManagerCompilerPass();
+    	$compiler->process($container);
+    }
+    
+    /**
+     * Test compiler pass with service defined as entity manager
+     */
     public function testProcess()
     {
     	$manager = m::mock('ASF\CoreBundle\Entity\Manager\ASFEntityManager');
     	$container = new ContainerBuilder();
     	$container->register('foo.manager', $manager)->addTag('asf_core.manager', array('entity' => 'ASF\CoreBundle\Tests\Fixtures\Manager\MockUser'));
-    	
+    	 
     	$compiler = new ASFEntityManagerCompilerPass();
     	$compiler->process($container);
-    	
+    	 
     	$this->assertTrue($container->hasDefinition('foo.manager'));
     }
 }
