@@ -10,6 +10,7 @@
 namespace ASF\CoreBundle\DependencyInjection\CompilerPass;
 
 use \Mockery as m;
+use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 /**
@@ -21,37 +22,45 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 class ASFEntityManagerCompilerPassTest implements \PHPUnit_Framework_TestCase
 {
 	/**
-	 * @var \Mockery\Mock|\Symfony\Component\DependencyInjection\ContainerBuilder
-	 */
-	protected $container;
-	
-	/**
-	 * {@inheritDoc}
-	 * @see PHPUnit_Framework_TestCase::setUp()
-	 */
-	public function setUp()
-	{
-		parent::setUp();
-		$this->containert = $container;
-	}
-	
-    /**
-     * Test Compiler pass process method
+     * @var m\Mock|\Symfony\Component\DependencyInjection\ContainerInterface
      */
-    public function testProcess()
+    private $container;
+    
+    /**
+     * @var m\Mock|\Symfony\Component\HttpKernel\KernelInterface
+     */
+    private $kernel;
+    
+    /**
+     * {@inheritDoc}
+     * @see PHPUnit_Framework_TestCase::setUp()
+     */
+    public function setUp()
     {
-        //$container->should
+        $this->container = m::mock('Symfony\Component\DependencyInjection\ContainerInterface');
+        $this->container->shouldReceive('register');
+        $this->container->shouldReceive('hasDefinition');
+        $this->container->shouldReceive('getDefinition');
+        $this->container->shouldReceive('setDefinitions');
+        
+        $this->kernel = m::mock('Symfony\Component\HttpKernel\KernelInterface');
+        $this->kernel->shouldReceive('getName')->andReturn('app');
+        $this->kernel->shouldReceive('getEnvironment')->andReturn('prod');
+        $this->kernel->shouldReceive('isDebug')->andReturn(false);
+        $this->kernel->shouldReceive('getContainer')->andReturn($this->container);
     }
     
     /**
-     * Return a mock object of ContainerBuilder
-     *
-     * @return \Symfony\Component\DependencyInjection\ContainerBuilder
+     * Test compiler pass without any services are defined as entity manager
      */
-    protected function getContainer($bundles = null, $extensions = null)
+    public function testProcess()
     {
-    	$container = m::mock('Symfony\Component\DependencyInjection\ContainerBuilder');
-    
-    	return $container;
+    	$container = new ContainerBuilder();
+    	$container->register('foo', 'stdClass')->addTag('asf_core.manager', array('entity' => 'stdClass'));
+    	
+    	$compiler = new ASFEntityManagerCompilerPass();
+    	$compiler->process($container);
+    	
+    	$this->assertTrue($container->hasDefinition('foo'));
     }
 }
