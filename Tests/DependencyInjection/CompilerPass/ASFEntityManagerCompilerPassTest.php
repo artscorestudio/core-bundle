@@ -64,9 +64,9 @@ class ASFEntityManagerCompilerPassTest extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Test compiler pass with service defined as entity manager
+     * Test compiler pass with service defined as entity manager but no custom Entity Manager and with FQCN entity class name
      */
-    public function testProcess()
+    public function testProcessWithoutManagerClassAndWithFQCNEntity()
     {
     	$manager = m::mock('ASF\CoreBundle\Entity\Manager\ASFEntityManager');
     	$container = new ContainerBuilder();
@@ -76,5 +76,20 @@ class ASFEntityManagerCompilerPassTest extends \PHPUnit_Framework_TestCase
     	$compiler->process($container);
     	 
     	$this->assertTrue($container->hasDefinition('foo.manager'));
+    }
+    
+    /**
+     * Test compiler pass with service defined as entity manager but no custom Entity Manager and with short entity class name
+     */
+    public function testProcessWithoutManagerClassAndWithShortEntity()
+    {
+        $manager = m::mock('ASF\CoreBundle\Entity\Manager\ASFEntityManager');
+        $container = new ContainerBuilder();
+        $container->register('foo.manager', $manager)->addTag('asf_core.manager', array('entity' => 'ASFCoreBundle:MockUser'));
+    
+        $compiler = new ASFEntityManagerCompilerPass();
+        $compiler->process($container);
+    
+        $this->assertTrue($container->hasDefinition('foo.manager'));
     }
 }

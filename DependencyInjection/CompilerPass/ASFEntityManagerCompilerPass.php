@@ -36,8 +36,8 @@ class ASFEntityManagerCompilerPass implements CompilerPassInterface
                     throw new \LogicException(sprintf("Attribute entity missing for service tagged asf_core.manager for service id %s", $id));
                 }
                 
-                $class = false !== strpos($container->getDefinition($id)->getClass(), '%') ? $this->translateParameter($container->getDefinition($id)->getClass()) : $container->getDefinition($id)->getClass();
-                $entity = false !== strpos($attributes['entity'], '%') ? $this->translateParameter($attributes['entity']) : $attributes['entity'];
+                $class = false !== strpos($container->getDefinition($id)->getClass(), '%') ? $container->getParameter($this->translateParameter($container->getDefinition($id)->getClass())) : $container->getDefinition($id)->getClass();
+                $entity = false !== strpos($attributes['entity'], '%') ? $container->getParameter($this->translateParameter($attributes['entity'])) : $attributes['entity'];
                 
                 if ( !class_exists($class) ) {
                 	$container->getDefinition($id)->setClass('ASF\CoreBundle\Entity\Manager\ASFEntityManager');
