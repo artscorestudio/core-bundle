@@ -44,3 +44,21 @@ So, the version number policy for a stable bundle is : *1.y.z*, with :
 * **x** : Major version. This is incremented when major changes are made in the bundle.
 * **y** : This is incremented when a new feature is added but not revolutionnary the entire bundle mechanism.
 * **z** : This number is incremented when corrections are made on the existing.
+
+### How to work with versioning
+
+The golden rule is : never work on the default branch (branch master) when the bundle is spent in production. So when you get into developing a bundle, create a development branch.
+
+Example : ASFCoreBundle is available in v1.0.0. So, it is in production. We want to add new feature on it, so we create a branch : v1.1.0, because this is a new feature (see above). With your favorite Git client, you create new branch : 1.1.0. This branch is in dev so if you add it in composer.json file, you have to call the bundle like this :
+
+```bash
+$ composer require artscorestudio/core-bundle "1.1.0@dev"
+``` 
+
+When the work is finished, you can merge the branch 1.1.0 into master branch and create a tag on master branch 1.1.0. In production, if we want to use this new version, add it in composer.json like this :
+
+```bash
+$ composer require artscorestudio/core-bundle "1.1.0"
+```
+
+Version constraints can be specified in several ways, read [Composer Documentation](https://getcomposer.org/doc/articles/versions.md) for more in-depth information on this topic.
