@@ -50,7 +50,7 @@ abstract class ASFEntityManagerModel implements ASFEntityManagerInterface
      */
     protected function isFQCNFormat($entity_name)
     {
-        return 1 === preg_match('/^([A-Z][a-zA-Z]+[\\\\]{1})([A-Z][a-zA-Z]+[\\\\]{1})+([A-Z][a-zA-Z]+)$/', $entity_name);
+        return 1 === preg_match('/^([A-Z][a-zA-Z0-9]+[\\\\]{1})([A-Z][a-zA-Z0-9]+[\\\\]{1})+([A-Z][a-zA-Z0-9]+)$/', $entity_name);
     }
     
     /**
