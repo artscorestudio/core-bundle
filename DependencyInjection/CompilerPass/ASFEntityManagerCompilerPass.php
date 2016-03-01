@@ -41,9 +41,10 @@ class ASFEntityManagerCompilerPass implements CompilerPassInterface
                 
                 if ( !class_exists($class) ) {
                 	$container->getDefinition($id)->setClass('ASF\CoreBundle\Entity\Manager\ASFEntityManager');
-                	$container->getDefinition($id)->addArgument(new Reference('doctrine.orm.entity_manager'));
-                	$container->getDefinition($id)->addArgument($entity);
                 }
+                
+                $container->getDefinition($id)->addArgument(new Reference('doctrine.orm.entity_manager'));
+                $container->getDefinition($id)->addArgument($entity);
             }
         }
     }
