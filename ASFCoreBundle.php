@@ -12,6 +12,7 @@ namespace ASF\CoreBundle;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use ASF\CoreBundle\DependencyInjection\CompilerPass\ASFEntityManagerCompilerPass;
+use ASF\CoreBundle\DependencyInjection\CompilerPass\FormHandlerCompilerPass;
 
 /**
  * Core Bundle
@@ -21,7 +22,6 @@ use ASF\CoreBundle\DependencyInjection\CompilerPass\ASFEntityManagerCompilerPass
  */
 class ASFCoreBundle extends Bundle
 {
-	
     /**
      * {@inheritDoc}
      * @see \Symfony\Component\HttpKernel\Bundle\Bundle::build()
@@ -30,5 +30,6 @@ class ASFCoreBundle extends Bundle
     {
         parent::build($container);
         $container->addCompilerPass(new ASFEntityManagerCompilerPass());
+        $container->addCompilerPass(new FormHandlerCompilerPass());
     }
 }
