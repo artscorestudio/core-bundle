@@ -65,8 +65,10 @@ abstract class ASFEntityManagerModel implements ASFEntityManagerInterface
         $entity = end($parts);
         
         if ( 1 === preg_match('/^([A-Z][a-zA-Z]+)([A-Z][a-zA-Z]+)(Bundle)$/', $parts[0], $matches) ) {
-           return $matches[1].'\\'.$matches[2].$matches[3].'\\'.$entity;
+           return $matches[1].'\\'.$matches[2].$matches[3].'\\Entity\\'.$entity;
         }
+        
+        return $entity_name;
     }
     
     /**
@@ -76,7 +78,11 @@ abstract class ASFEntityManagerModel implements ASFEntityManagerInterface
      */
     public function createInstance()
     {
-        $class = new \ReflectionClass($this->entityName);
+        if ( is_null($this->entityName) ) {
+            $class = new \ReflectionClass($this->originalEntityName);
+        } else {
+            $class = new \ReflectionClass($this->entityName);
+        }
         return $class->newInstanceArgs();
     }
     

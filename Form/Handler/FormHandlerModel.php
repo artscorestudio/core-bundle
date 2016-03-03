@@ -43,25 +43,6 @@ abstract class FormHandlerModel implements FormHandlerInterface
 		$this->form = $form;
 		$this->request = $request;
 	}
-	
-	/**
-	 * (non-PHPdoc)
-	 * @see \Asf\Bundle\ApplicationBundle\Application\Form\FormHandlerInterface::getForm()
-	 */
-	public function getForm()
-	{
-		return $this->form;
-	}
-	
-	/**
-	 * (non-PHPdoc)
-	 * @see \Asf\Bundle\ApplicationBundle\Application\Form\FormHandlerInterface::setForm()
-	 */
-	public function setForm($form)
-	{
-		$this->form = $form;
-		return $this;
-	}
 
 	/**
 	 * (non-PHPdoc)

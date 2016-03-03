@@ -37,5 +37,4 @@ abstract class ASFExtension extends Extension
 			}
 		}
 	}
-	
 }
