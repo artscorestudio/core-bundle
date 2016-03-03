@@ -22,7 +22,7 @@ For more inforamtion about translations, check [Symfony documentation](https://s
 
 ## Installation
 
-### Step 1 : Download AsfCoreBundle using composer
+### Step 1 : Download ASFCoreBundle using composer
 
 Require the bundle with composer :
 
@@ -56,5 +56,6 @@ Now you have completed the basic installation and configuration of the ASFCoreBu
 The following documents are available :
 
 * [What is Artscore Studio Framework](framework.md)
+* [Form Handler Model](form-handler.md)
 * [ASFEntityManager : The embedded entity manager](entity-manager.md)
 * [ASFCoreBundle Configuration Reference](configuration.md)

@@ -2,7 +2,7 @@
 
 Artscore Studio Framework is my personal environment for developping applications with Symfony. This framework is personal, it is not intended to be proposed for routine business use. You can use it however you like as it is under MIT License.
 
-IMPORTANT NOTICE: This framework is still under development. Any changes will be done without prior notice to consumers of this package. Of course this code will become stable at a certain point, but for now, use at your own risk.
+> IMPORTANT NOTICE: This framework is still under development. Any changes will be done without prior notice to consumers of this package. Of course this code will become stable at a certain point, but for now, use at your own risk.
 
 ## The goal of Artscore Studio Framework
 
