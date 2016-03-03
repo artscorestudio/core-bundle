@@ -29,10 +29,6 @@ class Configuration implements ConfigurationInterface
 		$treeBuilder = new TreeBuilder();
 		$rootNode = $treeBuilder->root('asf_core');
 		
-		$rootNode
-		
-		;
-		
 		return $treeBuilder; 
 	}
 }
