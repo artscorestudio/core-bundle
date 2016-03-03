@@ -11,9 +11,6 @@ namespace ASF\CoreBundle\Form\Handler;
 
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Translation\Translator;
-use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
-use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
 /**
  * Form Handler Model
@@ -29,6 +26,11 @@ abstract class FormHandlerModel implements FormHandlerInterface
 	protected $form;
 	
 	/**
+	 * @var Request
+	 */
+	protected $request;
+	
+	/**
 	 * @var mixed
 	 */
 	protected $model;
@@ -36,9 +38,10 @@ abstract class FormHandlerModel implements FormHandlerInterface
 	/**
 	 * @param FormTypeInterface $form
 	 */
-	public function __construct(FormInterface $form)
+	public function __construct(FormInterface $form, Request $request)
 	{
 		$this->form = $form;
+		$this->request = $request;
 	}
 	
 	/**

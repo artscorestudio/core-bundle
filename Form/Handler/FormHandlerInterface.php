@@ -35,48 +35,6 @@ interface FormHandlerInterface
 	public function setForm($form);
 	
 	/**
-	 * @return \Symfony\Component\HttpFoundation\RequestStack
-	 */
-	public function getRequest();
-	
-	/**
-	 * @param RequestStack $request
-	 * @return \Asf\Bundle\ApplicationBundle\Application\Form\FormHandlerInterface
-	 */
-	public function setRequest($request);
-	
-	/**
-	 * @return \Symfony\Component\Translation\Translator
-	 */
-	public function getTranslator();
-	
-	/**
-	 * @param Translator $translator
-	 * @return \Asf\Bundle\ApplicationBundle\Application\Form\FormHandlerInterface
-	 */
-	public function setTranslator($translator);
-	
-	/**
-	 * @return TokenStorage
-	 */
-	public function getTokenStorage();
-	
-	/**
-	 * @param TokenStorageInterface $token_storage
-	 */
-	public function setTokenStorage($token_storage);
-	
-	/**
-	 * @return AuthorizationCheckerInterface
-	 */
-	public function getAuthorizationChecker();
-	
-	/**
-	 * @param AuthorizationCheckerInterface $authorization_checker
-	 */
-	public function setAuthorizationChecker($authorization_checker);
-	
-	/**
 	 * Process Form
 	 * 
 	 * @return boolean
