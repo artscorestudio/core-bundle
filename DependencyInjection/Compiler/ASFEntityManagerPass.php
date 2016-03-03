@@ -7,7 +7,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace ASF\CoreBundle\DependencyInjection\CompilerPass;
+namespace ASF\CoreBundle\DependencyInjection\Compiler;
 
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -19,7 +19,7 @@ use Symfony\Component\DependencyInjection\Reference;
  * @author Nicolas Claverie <info@artscore-studio.fr>
  *
  */
-class ASFEntityManagerCompilerPass implements CompilerPassInterface
+class ASFEntityManagerPass implements CompilerPassInterface
 {
     /**
      * {@inheritDoc}
@@ -33,7 +33,7 @@ class ASFEntityManagerCompilerPass implements CompilerPassInterface
             foreach($tags as $attributes) {
                 
                 if ( !isset($attributes['entity']) ) {
-                    throw new \LogicException(sprintf("Attribute entity missing for service tagged asf_core.manager for service id %s", $id));
+                    throw new \LogicException(sprintf("Attribute \"entity\" missing for service tagged \"asf_core.manager\" for service id \"%s\"", $id));
                 }
                 
                 $class = false !== strpos($container->getDefinition($id)->getClass(), '%') ? $container->getParameter($this->translateParameter($container->getDefinition($id)->getClass())) : $container->getDefinition($id)->getClass();
@@ -54,7 +54,7 @@ class ASFEntityManagerCompilerPass implements CompilerPassInterface
      * 
      * @param strinng $parameter
      */
-    protected function translateParameter($parameter)
+    private function translateParameter($parameter)
     {
         return trim($parameter, '%');
     }

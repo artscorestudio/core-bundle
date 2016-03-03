@@ -11,7 +11,8 @@ namespace ASF\CoreBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use ASF\CoreBundle\DependencyInjection\CompilerPass\ASFEntityManagerCompilerPass;
+
+use ASF\CoreBundle\DependencyInjection\Compiler\ASFEntityManagerPass;
 
 /**
  * Core Bundle
@@ -28,6 +29,6 @@ class ASFCoreBundle extends Bundle
     public function build(ContainerBuilder $container)
     {
         parent::build($container);
-        $container->addCompilerPass(new ASFEntityManagerCompilerPass());
+        $container->addCompilerPass(new ASFEntityManagerPass());
     }
 }
