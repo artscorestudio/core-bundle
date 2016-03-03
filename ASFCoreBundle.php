@@ -30,6 +30,5 @@ class ASFCoreBundle extends Bundle
     {
         parent::build($container);
         $container->addCompilerPass(new ASFEntityManagerCompilerPass());
-        $container->addCompilerPass(new FormHandlerCompilerPass());
     }
 }

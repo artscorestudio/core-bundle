@@ -24,26 +24,6 @@ use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInt
 abstract class FormHandlerModel implements FormHandlerInterface
 {
 	/**
-	 * @var RequestStack
-	 */
-	protected $request;
-	
-	/**
-	 * @var Translator
-	 */
-	protected $translator;
-	
-	/**
-	 * @var TokenStorageInterface
-	 */
-	protected $tokenStorage;
-	
-	/**
-	 * @var AuthorizationCheckerInterface
-	 */
-	protected $authorizationChecker;
-	
-	/**
 	 * @var FormInterface
 	 */
 	protected $form;
@@ -79,83 +59,7 @@ abstract class FormHandlerModel implements FormHandlerInterface
 		$this->form = $form;
 		return $this;
 	}
-	
-	/**
-	 * (non-PHPdoc)
-	 * @see \Asf\Bundle\ApplicationBundle\Application\Form\FormHandlerInterface::getRequest()
-	 */
-	public function getRequest()
-	{
-		return $this->request;
-	} 
-	
-	/**
-	 * (non-PHPdoc)
-	 * @see \Asf\Bundle\ApplicationBundle\Application\Form\FormHandlerInterface::setRequest()
-	 */
-	public function setRequest($request)
-	{
-		$this->request = $request;
-		return $this;
-	}
-	
-	/**
-	 * (non-PHPdoc)
-	 * @see \Asf\Bundle\ApplicationBundle\Application\Form\FormHandlerInterface::getTranslator()
-	 */
-	public function getTranslator()
-	{
-		return $this->translator;
-	}
-	
-	/**
-	 * (non-PHPdoc)
-	 * @see \Asf\Bundle\ApplicationBundle\Application\Form\FormHandlerInterface::setTranslator()
-	 */
-	public function setTranslator($translator)
-	{
-		$this->translator = $translator;
-		return $this;
-	}
-	
-	/**
-	 * (non-PHPdoc)
-	 * @see \Asf\Bundle\ApplicationBundle\Application\Form\FormHandlerInterface::getSecurityContext()
-	 */
-	public function getTokenStorage()
-	{
-		return $this->tokenStorage;
-	}
-	
-	/**
-	 * (non-PHPdoc)
-	 * @see \Asf\Bundle\ApplicationBundle\Application\Form\FormHandlerInterface::setSecurityContext()
-	 */
-	public function setTokenStorage($token_storage)
-	{
-		$this->tokenStorage = $token_storage;
-		return $this;
-	}
-	
-	/**
-	 * (non-PHPdoc)
-	 * @see \Asf\Bundle\ApplicationBundle\Application\Form\FormHandlerInterface::getSecurityContext()
-	 */
-	public function getAuthorizationChecker()
-	{
-	    return $this->authorizationChecker;
-	}
-	
-	/**
-	 * (non-PHPdoc)
-	 * @see \Asf\Bundle\ApplicationBundle\Application\Form\FormHandlerInterface::setSecurityContext()
-	 */
-	public function setAuthorizationChecker($authorization_checker)
-	{
-	    $this->authorizationChecker = $authorization_checker;
-	    return $this;
-	}
-	
+
 	/**
 	 * (non-PHPdoc)
 	 * @see \Asf\Bundle\ApplicationBundle\Application\Form\FormHandlerInterface::process()
@@ -164,7 +68,7 @@ abstract class FormHandlerModel implements FormHandlerInterface
 	{
 		$this->form->handleRequest($this->request);
 		$this->model = $this->form->getData();
-		return ($this->form->isValid() && $this->processForm($this->model));
+		return ($this->form->isSubmitted() && $this->form->isValid() && $this->processForm($this->model));
 	}
 	
 	/**
