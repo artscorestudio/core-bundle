@@ -9,7 +9,6 @@
  */
 namespace ASF\CoreBundle\Tests;
 
-use \Mockery as m;
 use ASF\CoreBundle\ASFCoreBundle;
 
 /**
@@ -21,8 +20,7 @@ use ASF\CoreBundle\ASFCoreBundle;
 class ASFCoreBundleTest extends \PHPUnit_Framework_TestCase
 {
 	/**
-	 * (non-PHPdoc)
-	 * @see \Symfony\Component\HttpKernel\Bundle\Bundle::build()
+	 * @cover \ASF\CoreBundle\ASFCoreBundle
 	 */
 	public function testBuild()
 	{
@@ -37,10 +35,11 @@ class ASFCoreBundleTest extends \PHPUnit_Framework_TestCase
 	 *
 	 * @return \Symfony\Component\DependencyInjection\ContainerBuilder
 	 */
-	protected function getContainer($bundles = null, $extensions = null)
+	protected function getContainer()
 	{
-		$container = m::mock('Symfony\Component\DependencyInjection\ContainerBuilder');
-		$container->shouldReceive('addCompilerPass');
+	    $container = $this->getMock('Symfony\Component\DependencyInjection\ContainerBuilder');
+		$container->expects('addCompilerPass');
+		
 		return $container;
 	}
 }
