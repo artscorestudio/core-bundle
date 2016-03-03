@@ -12,7 +12,6 @@ namespace ASF\CoreBundle;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use ASF\CoreBundle\DependencyInjection\CompilerPass\ASFEntityManagerCompilerPass;
-use ASF\CoreBundle\DependencyInjection\CompilerPass\FormHandlerCompilerPass;
 
 /**
  * Core Bundle
