@@ -2,7 +2,7 @@
 	"name" : "artscorestudio/core-bundle",
 	"license" : "MIT",
 	"type" : "library",
-	"description" : "Symfony 3 core bundle for commons features in Artscore Studio Framework Environment.",
+	"description" : "Symfony 2/3 core bundle for commons features in Artscore Studio Framework Environment.",
 	"homepage" : "https://github.com/artscorestudio/core-bundle",
 	"authors" : [{
 		"name" : "Nicolas Claverie",
@@ -14,7 +14,7 @@
 	],
 	"require" : {
 		"php" : ">=5.5.9",
-		"symfony/framework-bundle": "~2.3|~3.0",
+		"symfony/framework-bundle": "~2.8|~3.0",
         "sensio/framework-extra-bundle": "~2.3|~3.0"
 	},
 	"require-dev" : {
