@@ -7,7 +7,7 @@
  * This source file is subject to the MIT Licence that is bundled
  * with this source code in the file LICENSE.
  */
-namespace ASF\CoreBundle\Tests\Fixtures\Manager;
+namespace ASF\CoreBundle\Tests\DependencyInjection\Compiler\Fixtures;
 
 /**
  * MockUser Entity
