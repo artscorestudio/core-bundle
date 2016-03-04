@@ -38,7 +38,7 @@ abstract class FormHandlerModel implements FormHandlerInterface
 	/**
 	 * @param FormTypeInterface $form
 	 */
-	public function __construct(FormInterface $form, Request $request)
+	public function __construct($form, $request)
 	{
 		$this->form = $form;
 		$this->request = $request;
