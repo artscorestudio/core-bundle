@@ -9,15 +9,13 @@
  */
 namespace ASF\CoreBundle\Tests\Form\Handler;
 
-use Symfony\Component\Form\Test\TypeTestCase;
-
 /**
  * Form Handler Model Test
  * 
  * @author Nicolas Claverie <info@artscore-studio.fr>
  *
  */
-class FormHandlerModelTest extends TypeTestCase
+class FormHandlerModelTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @covers ASF\CoreBundle\Form\Handler\FormHandlerModel
