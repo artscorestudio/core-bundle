@@ -23,7 +23,7 @@ class ConfigurationTest extends \PHPUnit_Framework_TestCase
     /**
      * @covers ASF\CoreBundle\DependencyInjection\Configuration
      */
-	public function testEnableTwigSupportParameterInDefaultConfiguration()
+	public function testDefaultConfiguration()
 	{
 		$processor = new Processor();
 		$config = $processor->processConfiguration(new Configuration(), array());
