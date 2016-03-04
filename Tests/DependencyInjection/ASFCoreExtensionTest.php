@@ -37,6 +37,7 @@ class ASFCoreExtensionTest extends \PHPUnit_Framework_TestCase
 	}
 	
 	/**
+	 * @covers ASF\CoreBundle\DependencyInjection\ASFCoreExtension
 	 * @covers ASF\CoreBundle\DependencyInjection\ASFCoreExtension::load
 	 */
 	public function testLoadExtension()

@@ -21,6 +21,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 class ASFExtensionTest extends \PHPUnit_Framework_TestCase
 {
     /**
+     * @covers ASF\CoreBundle\DependencyInjection\ASFExtension
      * @covers ASF\CoreBundle\DependencyInjection\ASFExtension::mapsParameters
      */
 	public function testMapsParameters()
