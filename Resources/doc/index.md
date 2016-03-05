@@ -27,7 +27,7 @@ For more inforamtion about translations, check [Symfony documentation](https://s
 Require the bundle with composer :
 
 ```bash
-$ composer require artscorestudio/core-bundle "dev-master"
+$ composer require artscorestudio/core-bundle "1.0.3"
 ```
 
 Composer will install the bundle to your project's *vendor/artscorestudio/core-bundle* directory.
