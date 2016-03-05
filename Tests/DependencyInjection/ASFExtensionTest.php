@@ -9,7 +9,6 @@
  */
 namespace ASF\CoreBundle\Tests\DependencyInjection;
 
-use ASF\CoreBundle\DependencyInjection\ASFCoreExtension;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 /**
