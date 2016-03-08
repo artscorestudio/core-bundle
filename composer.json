@@ -16,16 +16,21 @@
 		"php" : ">=5.3.9",
 		"symfony/framework-bundle": "~2.8|~3.0",
 		"symfony/expression-language": "~2.8|~3.0",
-        "doctrine/orm": "~2.4|^2.5",
-        "doctrine/doctrine-bundle": "^1.6"
+        	"doctrine/orm": "~2.4|^2.5",
+        	"doctrine/doctrine-bundle": "^1.6"
 	},
 	"require-dev" : {
-        "mockery/mockery": "0.9.*",
-        "symfony/form": "~2.3|~3.0"
+        	"mockery/mockery": "0.9.*",
+        	"symfony/form": "~2.3|~3.0"
 	},
 	"autoload" : {
 		"psr-4" : {
 			"ASF\\CoreBundle\\" : ""
+		}
+	},
+	"extra": {
+		"branch-alias": {
+			"dev-master": "1.0.x-dev"
 		}
 	},
 	"minimum-stability" : "dev"
