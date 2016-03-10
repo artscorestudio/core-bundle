@@ -45,6 +45,25 @@ abstract class FormHandlerModel implements FormHandlerInterface
 	}
 
 	/**
+	 * {@inheritDoc}
+	 * @see \ASF\CoreBundle\Form\Handler\FormHandlerInterface::getForm()
+	 */
+	public function getForm()
+	{
+	    return $this->form;
+	}
+	
+	/**
+	 * {@inheritDoc}
+	 * @see \ASF\CoreBundle\Form\Handler\FormHandlerInterface::setForm()
+	 */
+	public function setForm($form)
+	{
+	    $this->form = $form;
+	    return $this;
+	}
+	
+	/**
 	 * (non-PHPdoc)
 	 * @see \Asf\Bundle\ApplicationBundle\Application\Form\FormHandlerInterface::process()
 	 */
