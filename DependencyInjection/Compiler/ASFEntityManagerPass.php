@@ -43,8 +43,13 @@ class ASFEntityManagerPass implements CompilerPassInterface
                 	$container->getDefinition($id)->setClass('ASF\CoreBundle\Entity\Manager\ASFEntityManager');
                 }
                 
-                $container->getDefinition($id)->addArgument(new Reference('doctrine.orm.entity_manager'));
-                $container->getDefinition($id)->addArgument($entity);
+                $arguments = $container->getDefinition($id)->getArguments();
+                $injected_args = array(
+                    new Reference('doctrine.orm.entity_manager'),
+                    $entity
+                );
+                
+                $container->getDefinition($id)->setArguments(array_merge($injected_args, $arguments));
             }
         }
     }
