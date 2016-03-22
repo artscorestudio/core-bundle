@@ -4,9 +4,9 @@ Symfony 2/3 core bundle for commons features in Artscore Studio Framework Enviro
 
 > IMPORTANT NOTICE: This bundle is still under development. Any changes will be done without prior notice to consumers of this package. Of course this code will become stable at a certain point, but for now, use at your own risk.
 
-| [Master](https://github.com/artscorestudio/core-bundle) | [Latest Release (1.0.3)](https://github.com/artscorestudio/core-bundle/releases/tag/1.0.3) |
+| [Master](https://github.com/artscorestudio/core-bundle) | [Latest Release (1.0.4)](https://github.com/artscorestudio/core-bundle/releases/tag/1.0.4) |
 | ------ | -------------- |
-| [![Build Status](https://travis-ci.org/artscorestudio/core-bundle.svg?branch=master)](https://travis-ci.org/artscorestudio/core-bundle) | [![Build Status](https://travis-ci.org/artscorestudio/core-bundle.svg?branch=1.0.3)](https://travis-ci.org/artscorestudio/core-bundle) |
+| [![Build Status](https://travis-ci.org/artscorestudio/core-bundle.svg?branch=master)](https://travis-ci.org/artscorestudio/core-bundle) | [![Build Status](https://travis-ci.org/artscorestudio/core-bundle.svg?branch=1.0.4)](https://travis-ci.org/artscorestudio/core-bundle) |
 
 ## Documentation
 
