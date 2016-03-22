@@ -22,7 +22,8 @@ use \Mockery as m;
 class ASFEntityManagerPassTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @covers ASF\CoreBundle\DependencyInjection\Compiler\ASFEntityManagerPass
+     * @covers ASF\CoreBundle\DependencyInjection\Compiler\ASFEntityManagerPass::process
+     * @covers ASF\CoreBundle\DependencyInjection\Compiler\ASFEntityManagerPass::translateParameter
      */
     public function testProcessWithoutDefinedServices()
     {
@@ -59,5 +60,24 @@ class ASFEntityManagerPassTest extends \PHPUnit_Framework_TestCase
         $compiler->process($container);
     
         $this->assertTrue($container->hasDefinition('foo.manager'));
+    }
+    
+    /**
+     * @covers ASF\CoreBundle\DependencyInjection\Compiler\ASFEntityManagerPass
+     */
+    public function testProcessWithArgumentsInServiceDefinition()
+    {
+    	$manager = m::mock('ASF\CoreBundle\Entity\Manager\ASFEntityManager');
+    	$container = new ContainerBuilder();
+    	$container->register('foo.manager', $manager)
+    		->addTag('asf_core.manager', array('entity' => 'ASFCoreBundle:MockUser'))
+    		->addArgument('test');
+    	
+    	$compiler = new ASFEntityManagerPass();
+    	$compiler->process($container);
+    
+    	$args = $container->getDefinition('foo.manager')->getArguments();
+    	
+    	$this->assertCount(3, $args);
     }
 }
