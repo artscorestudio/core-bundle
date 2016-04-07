@@ -23,7 +23,6 @@ class ASFEntityManagerTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @covers ASF\CoreBundle\Entity\Manager\ASFEntityManager
-     * @covers ASF\CoreBundle\Model\Manager\ASFEntityManagerModel
      */
     public function testASFEntityManager()
     {
@@ -33,7 +32,6 @@ class ASFEntityManagerTest extends \PHPUnit_Framework_TestCase
     
     /**
      * @covers ASF\CoreBundle\Entity\Manager\ASFEntityManager::getFQCN
-     * @covers ASF\CoreBundle\Model\Manager\ASFEntityManagerModel::getFQCN
      */
     public function testASFEntityManagerGetFQCNMethod()
     {
@@ -46,7 +44,6 @@ class ASFEntityManagerTest extends \PHPUnit_Framework_TestCase
     
     /**
      * @covers ASF\CoreBundle\Entity\Manager\ASFEntityManager::isFQCNFormat
-     * @covers ASF\CoreBundle\Model\Manager\ASFEntityManagerModel::isFQCNFormat
      */
     public function testASFEntityManagerIsFQCNFormatMethod()
     {
@@ -59,7 +56,6 @@ class ASFEntityManagerTest extends \PHPUnit_Framework_TestCase
     
     /**
      * @covers ASF\CoreBundle\Entity\Manager\ASFEntityManager::createInstance
-     * @covers ASF\CoreBundle\Model\Manager\ASFEntityManagerModel::createInstance
      */
     public function testASFEntityManagerCreateInstanceMethod()
     {
@@ -76,7 +72,6 @@ class ASFEntityManagerTest extends \PHPUnit_Framework_TestCase
     
     /**
      * @covers ASF\CoreBundle\Entity\Manager\ASFEntityManager::getClassName
-     * @covers ASF\CoreBundle\Model\Manager\ASFEntityManagerModel::getClassName
      */
     public function testASFEntityManagerGetClassNameMethod()
     {
@@ -93,7 +88,6 @@ class ASFEntityManagerTest extends \PHPUnit_Framework_TestCase
     
     /**
      * @covers ASF\CoreBundle\Entity\Manager\ASFEntityManager::getEntityManager
-     * @covers ASF\CoreBundle\Model\Manager\ASFEntityManagerModel::getEntityManager
      */
     public function testASFEntityManagerGetEntityManagerMethod()
     {
@@ -110,7 +104,6 @@ class ASFEntityManagerTest extends \PHPUnit_Framework_TestCase
     
     /**
      * @covers ASF\CoreBundle\Entity\Manager\ASFEntityManager::getClassName
-     * @covers ASF\CoreBundle\Model\Manager\ASFEntityManagerModel::getClassName
      */
     public function testASFEntityManagerGetRepositoryMethod()
     {
@@ -128,7 +121,6 @@ class ASFEntityManagerTest extends \PHPUnit_Framework_TestCase
     
     /**
      * @covers ASF\CoreBundle\Entity\Manager\ASFEntityManager::getEntityName
-     * @covers ASF\CoreBundle\Model\Manager\ASFEntityManagerModel::getEntityName
      */
     public function testASFEntityManagerGetEntityNameMethod()
     {
@@ -145,7 +137,6 @@ class ASFEntityManagerTest extends \PHPUnit_Framework_TestCase
     
     /**
      * @covers ASF\CoreBundle\Entity\Manager\ASFEntityManager::getShortClassName
-     * @covers ASF\CoreBundle\Model\Manager\ASFEntityManagerModel::getShortClassName
      */
     public function testASFEntityManagerGetShortClassNameMethod()
     {
