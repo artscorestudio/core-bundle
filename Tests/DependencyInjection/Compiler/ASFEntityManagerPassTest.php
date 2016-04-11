@@ -38,7 +38,7 @@ class ASFEntityManagerPassTest extends \PHPUnit_Framework_TestCase
      */
     public function testProcessWithoutManagerClassAndWithFQCNEntity()
     {
-    	$manager = m::mock('ASF\CoreBundle\Entity\Manager\ASFEntityManager');
+    	$manager = m::mock('ASF\CoreBundle\Utils\Manager\ASFEntityManager');
     	$container = new ContainerBuilder();
     	$container->register('foo.manager', $manager)->addTag('asf_core.manager', array('entity' => 'ASF\CoreBundle\Entity\MockUser'));
     	
@@ -52,7 +52,7 @@ class ASFEntityManagerPassTest extends \PHPUnit_Framework_TestCase
      */
     public function testProcessWithoutManagerClassAndWithShortEntity()
     {
-        $manager = m::mock('ASF\CoreBundle\Entity\Manager\ASFEntityManager');
+        $manager = m::mock('ASF\CoreBundle\Utils\Manager\ASFEntityManager');
         $container = new ContainerBuilder();
         $container->register('foo.manager', $manager)->addTag('asf_core.manager', array('entity' => 'ASFCoreBundle:MockUser'));
     
@@ -67,7 +67,7 @@ class ASFEntityManagerPassTest extends \PHPUnit_Framework_TestCase
      */
     public function testProcessWithArgumentsInServiceDefinition()
     {
-    	$manager = m::mock('ASF\CoreBundle\Entity\Manager\ASFEntityManager');
+    	$manager = m::mock('ASF\CoreBundle\Utils\Manager\ASFEntityManager');
     	$container = new ContainerBuilder();
     	$container->register('foo.manager', $manager)
     		->addTag('asf_core.manager', array('entity' => 'ASFCoreBundle:MockUser'))

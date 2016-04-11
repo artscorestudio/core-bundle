@@ -40,7 +40,7 @@ class ASFEntityManagerPass implements CompilerPassInterface
                 $entity = false !== strpos($attributes['entity'], '%') ? $container->getParameter($this->translateParameter($attributes['entity'])) : $attributes['entity'];
                 
                 if ( !class_exists($class) ) {
-                	$container->getDefinition($id)->setClass('ASF\CoreBundle\Entity\Manager\ASFEntityManager');
+                	$container->getDefinition($id)->setClass('ASF\CoreBundle\Utils\Manager\ASFEntityManager');
                 }
                 
                 $arguments = $container->getDefinition($id)->getArguments();
