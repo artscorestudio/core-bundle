@@ -6,7 +6,8 @@ Symfony 2/3 core bundle for commons features in Artscore Studio Framework Enviro
 
 ## Prerequisites
 
-This version of the bundle requires Symfony 2.8+ / 3.0+.
+This version of the bundle requires :
+* [Symfony 2.8+ LTS / 3.0+][1]
 
 ### Translations
 
@@ -18,7 +19,7 @@ framework:
     translator: ~
 ```
 
-For more inforamtion about translations, check [Symfony documentation](https://symfony.com/doc/current/book/translation.html).
+For more inforamtion about translations, check [Symfony documentation][2].
 
 ## Installation
 
@@ -55,7 +56,12 @@ Now you have completed the basic installation and configuration of the ASFCoreBu
 
 The following documents are available :
 
-* [What is Artscore Studio Framework](framework.md)
-* [ASFCoreBundle Form Handler Model](form-handler.md)
-* [ASFEntityManager : The embedded entity manager](entity-manager.md)
-* [ASFCoreBundle Configuration Reference](configuration.md)
+* [What is Artscore Studio Framework][3]
+* [ASFCoreBundle Form Handler Model][4]
+* [ASFManager : A way for centralize actions on an entity][5]
+
+[1]: https://symfony.com/download
+[2]: https://symfony.com/doc/current/book/translation.html
+[3]: framework.md
+[4]: form-handler.md
+[5]: asf-manager.md

@@ -1,19 +1,15 @@
 <?php
-/**
- * This file is part of Artscore Studio Framework
+/*
+ * This file is part of the Artscore Studio Framework package.
  *
- * (c) 2012-2013 Nicolas Claverie <info@artscore-studio.fr>
+ * (c) Nicolas Claverie <info@artscore-studio.fr>
  *
- * This source file is subject to the MIT Licence that is bundled
- * with this source code in the file LICENSE.
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 namespace ASF\CoreBundle\Form\Handler;
 
 use Symfony\Component\Form\FormInterface;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\RequestStack;
-use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
-use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
 /**
  * Form Handler Model
@@ -30,7 +26,7 @@ interface FormHandlerInterface
 	
 	/**
 	 * @param FormInterface $form
-	 * @return \Asf\Bundle\ApplicationBundle\Application\Form\FormHandlerInterface
+	 * @return \ASF\CoreBundle\Form\Handler\FormHandlerInterface
 	 */
 	public function setForm($form);
 	

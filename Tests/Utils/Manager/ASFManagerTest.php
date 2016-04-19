@@ -9,7 +9,7 @@
  */
 namespace ASF\CoreBundle\Tests\Utils\Manager;
 
-use ASF\CoreBundle\Utils\Manager\ASFEntityManager;
+use ASF\CoreBundle\Utils\Manager\ASFManager;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityRepository;
 
@@ -19,45 +19,45 @@ use Doctrine\ORM\EntityRepository;
  * @author Nicolas Claverie <info@artscore-studio.fr>
  *
  */
-class ASFEntityManagerTest extends \PHPUnit_Framework_TestCase
+class ASFManagerTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @covers ASF\CoreBundle\Utils\Manager\ASFEntityManager
+     * @covers ASF\CoreBundle\Utils\Manager\ASFManager
      */
-    public function testASFEntityManager()
+    public function testASFManager()
     {
         $doctrine_em = $this->getMock('Doctrine\ORM\EntityManager', array(), array(), '', false);
-        $em = new ASFEntityManager($doctrine_em, 'ASFCoreBundle:MockEntity');
+        $em = new ASFManager($doctrine_em, 'ASFCoreBundle:MockEntity');
     }
     
     /**
-     * @covers ASF\CoreBundle\Utils\Manager\ASFEntityManager::getFQCN
+     * @covers ASF\CoreBundle\Utils\Manager\ASFManager::getFQCN
      */
-    public function testASFEntityManagerGetFQCNMethod()
+    public function testASFManagerGetFQCNMethod()
     {
         $get_fqcn = self::getMethod('getFQCN');
         $doctrine_em = $this->getMock('Doctrine\ORM\EntityManager', array(), array(), '', false);
-        $em = new ASFEntityManager($doctrine_em, 'ASFCoreBundle:Mock');
+        $em = new ASFManager($doctrine_em, 'ASFCoreBundle:Mock');
         
         $this->assertEquals('ASF\CoreBundle\Entity\Mock', $get_fqcn->invokeArgs($em, array('ASFCoreBundle:Mock')));
     }
     
     /**
-     * @covers ASF\CoreBundle\Utils\Manager\ASFEntityManager::isFQCNFormat
+     * @covers ASF\CoreBundle\Utils\Manager\ASFManager::isFQCNFormat
      */
-    public function testASFEntityManagerIsFQCNFormatMethod()
+    public function testASFManagerIsFQCNFormatMethod()
     {
         $is_fqcn = self::getMethod('isFQCNFormat');
         $doctrine_em = $this->getMock('Doctrine\ORM\EntityManager', array(), array(), '', false);
-        $em = new ASFEntityManager($doctrine_em, 'ASFCoreBundle:Mock');
+        $em = new ASFManager($doctrine_em, 'ASFCoreBundle:Mock');
     
         $this->assertTrue($is_fqcn->invokeArgs($em, array('ASF\CoreBundle\Entity\Mock')));
     }
     
     /**
-     * @covers ASF\CoreBundle\Utils\Manager\ASFEntityManager::createInstance
+     * @covers ASF\CoreBundle\Utils\Manager\ASFManager::createInstance
      */
-    public function testASFEntityManagerCreateInstanceMethod()
+    public function testASFManagerCreateInstanceMethod()
     {
         $doctrine_em = $this->getMock('Doctrine\ORM\EntityManager', array(), array(), '', false);
         $repository = $this->getMockBuilder('Doctrine\ORM\EntityRepository')
@@ -66,14 +66,14 @@ class ASFEntityManagerTest extends \PHPUnit_Framework_TestCase
         $repository->method('getClassName')->willReturn('ASF\CoreBundle\Entity\Mock');
         $doctrine_em->method('getRepository')->willReturn($repository);
         
-        $em = new ASFEntityManager($doctrine_em, '\stdClass');
+        $em = new ASFManager($doctrine_em, '\stdClass');
         $this->assertInstanceOf('\stdClass', $em->createInstance());
     }
     
     /**
-     * @covers ASF\CoreBundle\Utils\Manager\ASFEntityManager::getClassName
+     * @covers ASF\CoreBundle\Utils\Manager\ASFManager::getClassName
      */
-    public function testASFEntityManagerGetClassNameMethod()
+    public function testASFManagerGetClassNameMethod()
     {
         $doctrine_em = $this->getMock('Doctrine\ORM\EntityManager', array(), array(), '', false);
         $repository = $this->getMockBuilder('Doctrine\ORM\EntityRepository')
@@ -82,14 +82,14 @@ class ASFEntityManagerTest extends \PHPUnit_Framework_TestCase
         $repository->method('getClassName')->willReturn('ASF\CoreBundle\Entity\Mock');
         $doctrine_em->method('getRepository')->willReturn($repository);
         
-        $em = new ASFEntityManager($doctrine_em, 'ASFCoreBundle:MockEntity');
+        $em = new ASFManager($doctrine_em, 'ASFCoreBundle:MockEntity');
         $this->assertEquals('ASF\CoreBundle\Entity\Mock', $em->getClassName());
     }
     
     /**
-     * @covers ASF\CoreBundle\Utils\Manager\ASFEntityManager::getEntityManager
+     * @covers ASF\CoreBundle\Utils\Manager\ASFManager::getEntityManager
      */
-    public function testASFEntityManagerGetEntityManagerMethod()
+    public function testASFManagerGetEntityManagerMethod()
     {
         $doctrine_em = $this->getMock('Doctrine\ORM\EntityManager', array(), array(), '', false);
         $repository = $this->getMockBuilder('Doctrine\ORM\EntityRepository')
@@ -98,14 +98,14 @@ class ASFEntityManagerTest extends \PHPUnit_Framework_TestCase
         $repository->method('getClassName')->willReturn('ASF\CoreBundle\Entity\Mock');
         $doctrine_em->method('getRepository')->willReturn($repository);
     
-        $em = new ASFEntityManager($doctrine_em, 'ASFCoreBundle:MockEntity');
+        $em = new ASFManager($doctrine_em, 'ASFCoreBundle:MockEntity');
         $this->assertEquals('ASF\CoreBundle\Entity\Mock', $em->getEntityManager()->getRepository('ASF\CoreBundle\Entity\Mock')->getClassName());
     }
     
     /**
-     * @covers ASF\CoreBundle\Utils\Manager\ASFEntityManager::getClassName
+     * @covers ASF\CoreBundle\Utils\Manager\ASFManager::getClassName
      */
-    public function testASFEntityManagerGetRepositoryMethod()
+    public function testASFManagerGetRepositoryMethod()
     {
         $doctrine_em = $this->getMock('Doctrine\ORM\EntityManager', array(), array(), '', false);
         $repository = $this->getMockBuilder('Doctrine\ORM\EntityRepository')
@@ -115,14 +115,14 @@ class ASFEntityManagerTest extends \PHPUnit_Framework_TestCase
         $repository->method('getClassName')->willReturn('ASF\CoreBundle\Entity\Mock');
         $doctrine_em->method('getRepository')->willReturn($repository);
     
-        $em = new ASFEntityManager($doctrine_em, 'ASFCoreBundle:MockEntity');
+        $em = new ASFManager($doctrine_em, 'ASFCoreBundle:MockEntity');
         $this->assertRegExp('/EntityRepository/', get_class($em->getRepository()));
     }
     
     /**
-     * @covers ASF\CoreBundle\Utils\Manager\ASFEntityManager::getEntityName
+     * @covers ASF\CoreBundle\Utils\Manager\ASFManager::getEntityName
      */
-    public function testASFEntityManagerGetEntityNameMethod()
+    public function testASFManagerGetEntityNameMethod()
     {
         $doctrine_em = $this->getMock('Doctrine\ORM\EntityManager', array(), array(), '', false);
         $repository = $this->getMockBuilder('Doctrine\ORM\EntityRepository')
@@ -131,14 +131,14 @@ class ASFEntityManagerTest extends \PHPUnit_Framework_TestCase
         $repository->method('getClassName')->willReturn('ASF\CoreBundle\Entity\Mock');
         $doctrine_em->method('getRepository')->willReturn($repository);
     
-        $em = new ASFEntityManager($doctrine_em, 'ASFCoreBundle:MockEntity');
+        $em = new ASFManager($doctrine_em, 'ASFCoreBundle:MockEntity');
         $this->assertRegExp('/Mock/', $em->getEntityName());
     }
     
     /**
-     * @covers ASF\CoreBundle\Utils\Manager\ASFEntityManager::getShortClassName
+     * @covers ASF\CoreBundle\Utils\Manager\ASFManager::getShortClassName
      */
-    public function testASFEntityManagerGetShortClassNameMethod()
+    public function testASFManagerGetShortClassNameMethod()
     {
         $doctrine_em = $this->getMock('Doctrine\ORM\EntityManager', array(), array(), '', false);
         $repository = $this->getMockBuilder('Doctrine\ORM\EntityRepository')
@@ -147,7 +147,7 @@ class ASFEntityManagerTest extends \PHPUnit_Framework_TestCase
         $repository->method('getClassName')->willReturn('ASF\CoreBundle\Entity\Mock');
         $doctrine_em->method('getRepository')->willReturn($repository);
     
-        $em = new ASFEntityManager($doctrine_em, 'ASFCoreBundle:MockEntity');
+        $em = new ASFManager($doctrine_em, 'ASFCoreBundle:MockEntity');
         $this->assertRegExp('/ASFCoreBundle:Mock/', $em->getShortClassName());
     }
     
@@ -158,7 +158,7 @@ class ASFEntityManagerTest extends \PHPUnit_Framework_TestCase
      */
     protected static function getMethod($name)
     {
-        $class = new \ReflectionClass('ASF\CoreBundle\Utils\Manager\ASFEntityManager');
+        $class = new \ReflectionClass('ASF\CoreBundle\Utils\Manager\ASFManager');
         $method = $class->getMethod($name);
         $method->setAccessible(true);
         return $method;

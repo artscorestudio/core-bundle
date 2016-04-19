@@ -17,7 +17,7 @@ use Doctrine\ORM\EntityManagerInterface;
  * @author Nicolas Claverie <info@artscore-studio.fr>
  *
  */
-class ASFEntityManager implements ASFEntityManagerInterface
+class ASFManager implements ASFManagerInterface
 {
 	/**
 	 * @var \Doctrine\ORM\EntityManagerInterface

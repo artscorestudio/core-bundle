@@ -10,7 +10,7 @@
 namespace ASF\CoreBundle\DependencyInjection\Compiler;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use ASF\CoreBundle\DependencyInjection\Compiler\ASFEntityManagerPass;
+use ASF\CoreBundle\DependencyInjection\Compiler\ASFManagerPass;
 use \Mockery as m;
 
 /**
@@ -19,61 +19,61 @@ use \Mockery as m;
  * @author Nicolas Claverie <info@artscore-studio.fr>
  *
  */
-class ASFEntityManagerPassTest extends \PHPUnit_Framework_TestCase
+class ASFManagerPassTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @covers ASF\CoreBundle\DependencyInjection\Compiler\ASFEntityManagerPass::process
-     * @covers ASF\CoreBundle\DependencyInjection\Compiler\ASFEntityManagerPass::translateParameter
+     * @covers ASF\CoreBundle\DependencyInjection\Compiler\ASFManagerPass::process
+     * @covers ASF\CoreBundle\DependencyInjection\Compiler\ASFManagerPass::translateParameter
      */
     public function testProcessWithoutDefinedServices()
     {
     	$container = new ContainerBuilder();
     	
-    	$compiler = new ASFEntityManagerPass();
+    	$compiler = new ASFManagerPass();
     	$compiler->process($container);
     }
     
     /**
-     * @covers ASF\CoreBundle\DependencyInjection\Compiler\ASFEntityManagerPass
+     * @covers ASF\CoreBundle\DependencyInjection\Compiler\ASFManagerPass
      */
     public function testProcessWithoutManagerClassAndWithFQCNEntity()
     {
-    	$manager = m::mock('ASF\CoreBundle\Utils\Manager\ASFEntityManager');
+    	$manager = m::mock('ASF\CoreBundle\Utils\Manager\ASFManager');
     	$container = new ContainerBuilder();
     	$container->register('foo.manager', $manager)->addTag('asf_core.manager', array('entity' => 'ASF\CoreBundle\Entity\MockUser'));
     	
-    	$compiler = new ASFEntityManagerPass();
+    	$compiler = new ASFManagerPass();
     	$compiler->process($container);
     	$this->assertTrue($container->hasDefinition('foo.manager'));
     }
     
     /**
-     * @covers ASF\CoreBundle\DependencyInjection\Compiler\ASFEntityManagerPass
+     * @covers ASF\CoreBundle\DependencyInjection\Compiler\ASFManagerPass
      */
     public function testProcessWithoutManagerClassAndWithShortEntity()
     {
-        $manager = m::mock('ASF\CoreBundle\Utils\Manager\ASFEntityManager');
+        $manager = m::mock('ASF\CoreBundle\Utils\Manager\ASFManager');
         $container = new ContainerBuilder();
         $container->register('foo.manager', $manager)->addTag('asf_core.manager', array('entity' => 'ASFCoreBundle:MockUser'));
     
-        $compiler = new ASFEntityManagerPass();
+        $compiler = new ASFManagerPass();
         $compiler->process($container);
     
         $this->assertTrue($container->hasDefinition('foo.manager'));
     }
     
     /**
-     * @covers ASF\CoreBundle\DependencyInjection\Compiler\ASFEntityManagerPass
+     * @covers ASF\CoreBundle\DependencyInjection\Compiler\ASFManagerPass
      */
     public function testProcessWithArgumentsInServiceDefinition()
     {
-    	$manager = m::mock('ASF\CoreBundle\Utils\Manager\ASFEntityManager');
+    	$manager = m::mock('ASF\CoreBundle\Utils\Manager\ASFManager');
     	$container = new ContainerBuilder();
     	$container->register('foo.manager', $manager)
     		->addTag('asf_core.manager', array('entity' => 'ASFCoreBundle:MockUser'))
     		->addArgument('test');
     	
-    	$compiler = new ASFEntityManagerPass();
+    	$compiler = new ASFManagerPass();
     	$compiler->process($container);
     
     	$args = $container->getDefinition('foo.manager')->getArguments();

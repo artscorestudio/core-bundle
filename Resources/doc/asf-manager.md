@@ -1,8 +1,10 @@
-# ASFEntityManager : The embedded entity manager
+# ASFManager : A way for centralize actions on an entity
 
-CoreBundle provides a specific approch for manage entities in the Artscore Studio Framework (ASF). All entities in ASF can be managed by their own entity manager. This can be useful for centralize actions like create new instance of an entity, delete or update entities, etc.
+ASFCoreBundle provides a specific approch for manage entities in the Artscore Studio Framework (ASF). All entities in ASF can be managed by their own manager. This can be useful for centralize actions like create new instance of an entity, delete or update entities, etc.
 
-## How to create an entity manager for your entity
+> This Manager is not like Doctrine ORM Entity Manager. It is just a way to centralize all actions around an entity.
+
+## How to create a manager for your entity
 
 Imagine that you have created a bundle called *AcmeUserBundle*. This bundle includes an entity called User :
 
@@ -49,7 +51,7 @@ The attribute *entity* can be written in two formats :
 * Acme\DemoBundle\Entity\User
 * AcmeDemoBundle:User
 
-> Be aware, for the moment, you can manage entities with a name formatted on the [PSR-4 format](http://www.php-fig.org/psr/psr-4/) but with just two sub-namespaces and ended by entity name (like : Acme\DemoBundle\Entity\EntityName).
+> Be aware, for the moment, you can manage entities with a name formatted on the [PSR-4 format][1] but with just two sub-namespaces and ended by entity name (like : Acme\DemoBundle\Entity\EntityName).
 
 ```xml
 <?xml version="1.0" ?>
@@ -60,7 +62,7 @@ The attribute *entity* can be written in two formats :
 
 	<parameters>
     	<!-- User Manager -->
-		<parameter key="acme_user.user.manager.class">Acme\UserBundle\Entity\Manager\UserManager</parameter>
+		<parameter key="acme_user.user.manager.class">Acme\UserBundle\Utils\Manager\UserManager</parameter>
 		<parameter key="acme_user.user.manager.entity.class">Acme\UserBundle\Entity\User</parameter>
 	</parameters>
 
@@ -97,24 +99,28 @@ class UserController extends Controller
 
 No hard-coded reference to the entity in your controller, it can be *Acme\DemoBundle\Entity\User* or *ASF\UserBundle\Entity\User*, etc.
 
-### Step 3 (optional) : overriding default entity manager
+### Step 3 (optional) : overriding default manager
 
-I don't know if you noticed, but in the examples above, you have not created your own entity manager class. If you want to override the default entity manager, you have just to create the entity manager corresponding to the class name done in the service definition :
+I don't know if you noticed, but in the examples above, you have not created your own manager class. If you want to override the default manager, you have just to create the manager corresponding to the class name done in the service definition :
 
 ```
-<parameter key="acme_user.user.manager.class">Acme\UserBundle\Entity\Manager\UserManager</parameter>
+<parameter key="acme_user.user.manager.class">Acme\UserBundle\Utils\Manager\UserManager</parameter>
 ```
 
-CoreBundle porvides a Model class to extends if you want :
+ASFCoreBundle porvides a Model class to extends if you want :
 
 ```php
-namespace Acme\UserBundle\Entity\Manager;
+namespace Acme\UserBundle\Utils\Manager;
 
-use ASF\CoreBundle\Model\Manager\ASFEntityManager;
+use ASF\CoreBundle\Utils\Manager\ASFManager;
 
-class UserManager extends ASFEntityManager
+class UserManager extends ASFManager
 {
 	// [...]
 }
 ```
+
+> By default, the Manager class is located in *Utils/manager*. This is just a convention. It's up t you to follows this or not.
+
+[1]: http://www.php-fig.org/psr/psr-4/
 

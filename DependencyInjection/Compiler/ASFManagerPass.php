@@ -14,12 +14,12 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Reference;
 
 /**
- * Compiler Pass for Entity Managers tagged services
+ * Compiler Pass for Managers tagged services
  *  
  * @author Nicolas Claverie <info@artscore-studio.fr>
  *
  */
-class ASFEntityManagerPass implements CompilerPassInterface
+class ASFManagerPass implements CompilerPassInterface
 {
     /**
      * {@inheritDoc}
@@ -40,7 +40,7 @@ class ASFEntityManagerPass implements CompilerPassInterface
                 $entity = false !== strpos($attributes['entity'], '%') ? $container->getParameter($this->translateParameter($attributes['entity'])) : $attributes['entity'];
                 
                 if ( !class_exists($class) ) {
-                	$container->getDefinition($id)->setClass('ASF\CoreBundle\Utils\Manager\ASFEntityManager');
+                	$container->getDefinition($id)->setClass('ASF\CoreBundle\Utils\Manager\ASFManager');
                 }
                 
                 $arguments = $container->getDefinition($id)->getArguments();

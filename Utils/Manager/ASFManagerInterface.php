@@ -15,7 +15,7 @@ namespace ASF\CoreBundle\Utils\Manager;
  * @author Nicolas Claverie <info@artscore-studio.fr>
  *
  */
-interface ASFEntityManagerInterface
+interface ASFManagerInterface
 {
     /**
      * Create new instance of the entity
