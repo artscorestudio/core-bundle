@@ -12,7 +12,7 @@ Symfony 2/3 core bundle for commons features in Artscore Studio Framework Enviro
 
 The bulk of the documentation is stored in the Resources/docs/index.md file in bundle :
 
-[Read the documentation for 1.0.5][3].
+[Read the documentation for master][3].
 
 
 ## Installation
@@ -54,6 +54,6 @@ When reporting a bug, it may be a good idea to reproduce it in a basic project b
 
 [1]: https://github.com/artscorestudio/core-bundle
 [2]: https://github.com/artscorestudio/core-bundle/releases/tag/1.0.5
-[3]: https://github.com/artscorestudio/core-bundle/blob/1.0.5/Resources/doc/index.md
+[3]: https://github.com/artscorestudio/core-bundle/blob/master/Resources/doc/index.md
 [4]: http://www.artscore-studio.fr
 [5]: https://github.com/artscorestudio/core-bundle/issues
