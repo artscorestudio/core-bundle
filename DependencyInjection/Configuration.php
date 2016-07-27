@@ -7,28 +7,29 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+
 namespace ASF\CoreBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 
 /**
- * Bundle configuration
+ * Bundle configuration.
  * 
  * @author Nicolas Claverie <info@artscore-studio.fr>
- *
  */
 class Configuration implements ConfigurationInterface
 {
-	/**
-	 * {@inheritDoc}
-	 * @see \Symfony\Component\Config\Definition\ConfigurationInterface::getConfigTreeBuilder()
-	 */
-	public function getConfigTreeBuilder()
-	{
-		$treeBuilder = new TreeBuilder();
-		$rootNode = $treeBuilder->root('asf_core');
-		
-		return $treeBuilder; 
-	}
+    /**
+     * {@inheritdoc}
+     *
+     * @see \Symfony\Component\Config\Definition\ConfigurationInterface::getConfigTreeBuilder()
+     */
+    public function getConfigTreeBuilder()
+    {
+        $treeBuilder = new TreeBuilder();
+        $rootNode = $treeBuilder->root('asf_core');
+
+        return $treeBuilder;
+    }
 }
