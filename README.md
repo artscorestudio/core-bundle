@@ -4,15 +4,15 @@ Symfony 2/3 core bundle for commons features in Artscore Studio Framework Enviro
 
 > IMPORTANT NOTICE: This bundle is still under development. Any changes will be done without prior notice to consumers of this package. Of course this code will become stable at a certain point, but for now, use at your own risk.
 
-| [Master][1] | [Latest Release (1.0.5)][2] |
+| [Master][1] | [Latest Release (1.0.6)][2] |
 | ------ | -------------- |
-| [![Build Status](https://travis-ci.org/artscorestudio/core-bundle.svg?branch=master)](https://travis-ci.org/artscorestudio/core-bundle) | [![Build Status](https://travis-ci.org/artscorestudio/core-bundle.svg?branch=1.0.5)](https://travis-ci.org/artscorestudio/core-bundle) |
+| [![Build Status](https://travis-ci.org/artscorestudio/core-bundle.svg?branch=master)](https://travis-ci.org/artscorestudio/core-bundle) | [![Build Status](https://travis-ci.org/artscorestudio/core-bundle.svg?branch=1.0.6)](https://travis-ci.org/artscorestudio/core-bundle) |
 
 ## Documentation
 
 The bulk of the documentation is stored in the Resources/docs/index.md file in bundle :
 
-[Read the documentation for master][3].
+[Read the documentation for 1.0.6][3].
 
 
 ## Installation
@@ -53,7 +53,7 @@ Issues and features requests are tracked in the [GitHub issue tracker][5].
 When reporting a bug, it may be a good idea to reproduce it in a basic project built using the Symfony Standard Edition to allow developers of the bundle te reproduce the issue by simply cloning it and following steps.
 
 [1]: https://github.com/artscorestudio/core-bundle
-[2]: https://github.com/artscorestudio/core-bundle/releases/tag/1.0.5
-[3]: https://github.com/artscorestudio/core-bundle/blob/master/Resources/doc/index.md
+[2]: https://github.com/artscorestudio/core-bundle/releases/tag/1.0.6
+[3]: https://github.com/artscorestudio/core-bundle/blob/1.0.6/Resources/doc/index.md
 [4]: http://www.artscore-studio.fr
 [5]: https://github.com/artscorestudio/core-bundle/issues
